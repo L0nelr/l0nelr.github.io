@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyiv Parking Bot: MVP Go-To-Market Strategy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #f1f5f9;
+        }
+        h1, h2, h3, .mono-font {
+            font-family: 'Share Tech Mono', monospace;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: 400px;
+            margin: 0 auto;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
+
+        /* Modal Animation */
+        .modal-enter { opacity: 0; transform: scale(0.95); }
+        .modal-enter-active { opacity: 1; transform: scale(1); transition: all 0.3s ease-out; }
+        .modal-exit { opacity: 1; transform: scale(1); }
+        .modal-exit-active { opacity: 0; transform: scale(0.95); transition: all 0.2s ease-in; }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-500 selection:text-white">
+
+    <header class="fixed top-0 w-full z-40 glass-panel border-b border-blue-900/50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold mono-font text-blue-400 tracking-tighter">
+                KYIV<span class="text-white">PARKING</span>BOT
+            </div>
+            <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-300">
+                <a href="#strategies" class="hover:text-blue-400 transition">10 Стратегій</a>
+                <a href="#analysis" class="hover:text-blue-400 transition">Аналітика</a>
+                <a href="#table" class="hover:text-blue-400 transition">Таблиця</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="pt-32 pb-12 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-green-400">
+                MVP GO-TO-MARKET
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                Стратегія залучення перших користувачів.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-slate-800 rounded-xl p-6 border border-blue-500/20 shadow-lg shadow-blue-500/10 text-center">
+                <div class="text-4xl font-bold text-white mono-font mb-2">10</div>
+                <div class="text-blue-400 text-sm uppercase tracking-wide">Каналів Просування</div>
+            </div>
+            <div class="bg-slate-800 rounded-xl p-6 border border-green-500/20 shadow-lg shadow-green-500/10 text-center">
+                <div class="text-4xl font-bold text-white mono-font mb-2">MVP</div>
+                <div class="text-green-400 text-sm uppercase tracking-wide">Фаза 1: Trust & Data</div>
+            </div>
+            <div class="bg-slate-800 rounded-xl p-6 border border-orange-500/20 shadow-lg shadow-orange-500/10 text-center">
+                <div class="text-4xl font-bold text-white mono-font mb-2">B2C</div>
+                <div class="text-orange-400 text-sm uppercase tracking-wide">Цільова Аудиторія</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="strategies" class="py-10 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center mb-12">
+                <div class="h-10 w-2 bg-blue-500 mr-4 rounded-full"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white">10 ВАРІАНТІВ ПРОСУВАННЯ</h2>
+            </div>
+            <p class="mb-8 text-gray-400 text-sm">👇 Натисніть на картку, щоб побачити детальний аналіз та Suitability Score.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <button onclick="openModal(1)" class="w-full text-left bg-slate-800 rounded-xl p-6 transition duration-300 border border-gray-700 hover:border-blue-500 group card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="text-5xl mr-4">📢</div>
+                        <div class="bg-blue-900 text-blue-300 text-xs px-2 py-1 rounded mono-font">DIRECT ADS</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition">1. Telegram Seeding (Локальні канали)</h3>
+                    <p class="text-gray-400 text-sm mb-4">Розміщення нативних постів у каналах "Київ Оперативний", "ДТП Київ" та районних чатах.</p>
+                    <div class="flex items-center text-blue-400 text-sm font-semibold mt-4">
+                        ДЕТАЛЬНИЙ АНАЛІЗ <span class="ml-2">→</span>
+                    </div>
+                </button>
+
+                <button onclick="openModal(2)" class="w-full text-left bg-slate-800 rounded-xl p-6 transition duration-300 border border-gray-700 hover:border-green-500 group card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="text-5xl mr-4">📍</div>
+                        <div class="bg-green-900 text-green-300 text-xs px-2 py-1 rounded mono-font">OFFLINE</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition">2. Hyper-Local QR (Паркомати/Ліфти)</h3>
+                    <p class="text-gray-400 text-sm mb-4">Стікери з QR-кодом безпосередньо біля проблемних зон паркування та в ліфтах БЦ.</p>
+                    <div class="flex items-center text-green-400 text-sm font-semibold mt-4">
+                        ДЕТАЛЬНИЙ АНАЛІЗ <span class="ml-2">→</span>
+                    </div>
+                </button>
+
+                <button onclick="openModal(3)" class="w-full text-left bg-slate-800 rounded-xl p-6 transition duration-300 border border-gray-700 hover:border-pink-500 group card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="text-5xl mr-4">🎯</div>
+                        <div class="bg-pink-900 text-pink-300 text-xs px-2 py-1 rounded mono-font">TARGETING</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-pink-400 transition">3. Geo-Targeted Instagram Ads</h3>
+                    <p class="text-gray-400 text-sm mb-4">Таргет на власників авто (інтереси: BMW, Toyota) з геолокацією +1км від центру Києва.</p>
+                    <div class="flex items-center text-pink-400 text-sm font-semibold mt-4">
+                        ДЕТАЛЬНИЙ АНАЛІЗ <span class="ml-2">→</span>
+                    </div>
+                </button>
+
+                <button onclick="openModal(4)" class="w-full text-left bg-slate-800 rounded-xl p-6 transition duration-300 border border-gray-700 hover:border-orange-500 group card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="text-5xl mr-4">🤝</div>
+                        <div class="bg-orange-900 text-orange-300 text-xs px-2 py-1 rounded mono-font">PARTNERSHIP</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-orange-400 transition">4. Партнерство з Детейлінгами</h3>
+                    <p class="text-gray-400 text-sm mb-4">Роздача візиток/флаєрів у преміум-мийках. Крос-промо з бізнесами авто-тематики.</p>
+                    <div class="flex items-center text-orange-400 text-sm font-semibold mt-4">
+                        ДЕТАЛЬНИЙ АНАЛІЗ <span class="ml-2">→</span>
+                    </div>
+                </button>
+
+                <button onclick="openModal(5)" class="w-full text-left bg-slate-800 rounded-xl p-6 transition duration-300 border border-gray-700 hover:border-purple-500 group card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="text-5xl mr-4">🦍</div>
+                        <div class="bg-purple-900 text-purple-300 text-xs px-2 py-1 rounded mono-font">GUERRILLA</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition">5. "Партизанський" Маркетинг (Коменти)</h3>
+                    <p class="text-gray-400 text-sm mb-4">Моніторинг постів про евакуацію/штрафи в соцмережах і нативна рекомендація бота.</p>
+                    <div class="flex items-center text-purple-400 text-sm font-semibold mt-4">
+                        ДЕТАЛЬНИЙ АНАЛІЗ <span class="ml-2">→</span>
+                    </div>
+                </button>
+
+                <button onclick="openModal(6)" class="w-full text-left bg-slate-800 rounded-xl p-6 transition duration-300 border border-gray-700 hover:border-yellow-500 group card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="text-5xl mr-4">🚕</div>
+                        <div class="bg-yellow-900 text-yellow-300 text-xs px-2 py-1 rounded mono-font">NICHE</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition">6. Спільноти Таксі/Uber/Bolt</h3>
+                    <p class="text-gray-400 text-sm mb-4">Захід в закриті чати водіїв. Пропозиція рішення для очікування замовлень.</p>
+                    <div class="flex items-center text-yellow-400 text-sm font-semibold mt-4">
+                        ДЕТАЛЬНИЙ АНАЛІЗ <span class="ml-2">→</span>
+                    </div>
+                </button>
+
+                <button onclick="openModal(7)" class="w-full text-left bg-slate-800 rounded-xl p-6 transition duration-300 border border-gray-700 hover:border-cyan-500 group card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="text-5xl mr-4">🤖</div>
+                        <div class="bg-cyan-900 text-cyan-300 text-xs px-2 py-1 rounded mono-font">CROSS-PROMO</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition">7. Крос-промо з іншими Ботами</h3>
+                    <p class="text-gray-400 text-sm mb-4">Реклама в ботах моніторингу пального, штрафів, Opendatabot авто.</p>
+                    <div class="flex items-center text-cyan-400 text-sm font-semibold mt-4">
+                        ДЕТАЛЬНИЙ АНАЛІЗ <span class="ml-2">→</span>
+                    </div>
+                </button>
+
+                <button onclick="openModal(8)" class="w-full text-left bg-slate-800 rounded-xl p-6 transition duration-300 border border-gray-700 hover:border-red-500 group card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="text-5xl mr-4">🎥</div>
+                        <div class="bg-red-900 text-red-300 text-xs px-2 py-1 rounded mono-font">CONTENT</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-400 transition">8. TikTok / Reels (POV Відео)</h3>
+                    <p class="text-gray-400 text-sm mb-4">Короткі вірусні відео про біль паркування. Візуалізація проблеми.</p>
+                    <div class="flex items-center text-red-400 text-sm font-semibold mt-4">
+                        ДЕТАЛЬНИЙ АНАЛІЗ <span class="ml-2">→</span>
+                    </div>
+                </button>
+
+                <button onclick="openModal(9)" class="w-full text-left bg-slate-800 rounded-xl p-6 transition duration-300 border border-gray-700 hover:border-indigo-500 group card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="text-5xl mr-4">📝</div>
+                        <div class="bg-indigo-900 text-indigo-300 text-xs px-2 py-1 rounded mono-font">PR/SEO</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition">9. PR Статті (Tech/Lifestyle)</h3>
+                    <p class="text-gray-400 text-sm mb-4">Статті на MC.today, AIN. Потрапляння в каталоги "ТОП корисних ботів".</p>
+                    <div class="flex items-center text-indigo-400 text-sm font-semibold mt-4">
+                        ДЕТАЛЬНИЙ АНАЛІЗ <span class="ml-2">→</span>
+                    </div>
+                </button>
+
+                <button onclick="openModal(10)" class="w-full text-left bg-slate-800 rounded-xl p-6 transition duration-300 border border-gray-700 hover:border-teal-500 group card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="text-5xl mr-4">🎁</div>
+                        <div class="bg-teal-900 text-teal-300 text-xs px-2 py-1 rounded mono-font">VIRAL</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition">10. Реферальна Програма (Gamification)</h3>
+                    <p class="text-gray-400 text-sm mb-4">Product-Led Growth. "Запроси друга — отримай доступ до функцій".</p>
+                    <div class="flex items-center text-teal-400 text-sm font-semibold mt-4">
+                        ДЕТАЛЬНИЙ АНАЛІЗ <span class="ml-2">→</span>
+                    </div>
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="analysis" class="py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <div class="bg-slate-800 rounded-xl p-6 shadow-xl border border-gray-700">
+                    <h3 class="text-xl font-bold text-white mb-4 mono-font border-b border-gray-700 pb-2">Аналіз Ефективності (Cost vs Impact)</h3>
+                    <p class="text-sm text-gray-400 mb-4">Розмір бульбашки = Потенційне охоплення</p>
+                    <div class="chart-container">
+                        <canvas id="impactChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 rounded-xl p-6 shadow-xl border border-gray-700">
+                    <h3 class="text-xl font-bold text-white mb-4 mono-font border-b border-gray-700 pb-2">Час: Підготовка vs Тривалість</h3>
+                    <p class="text-sm text-gray-400 mb-4">Оцінка часових ресурсів команди</p>
+                    <div class="chart-container">
+                        <canvas id="timeChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="table" class="py-16 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center mb-8">
+                <div class="h-10 w-2 bg-green-500 mr-4 rounded-full"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white">ПОРІВНЯЛЬНА ТАБЛИЦЯ</h2>
+            </div>
+            
+            <div class="overflow-x-auto bg-slate-800 rounded-xl shadow-2xl border border-gray-700">
+                <table class="w-full text-left text-sm text-gray-400">
+                    <thead class="bg-slate-900 text-xs uppercase font-bold text-blue-400 mono-font">
+                        <tr>
+                            <th class="px-6 py-4">Стратегія</th>
+                            <th class="px-6 py-4">Вартість ($)</th>
+                            <th class="px-6 py-4">Ефективність (1-10)</th>
+                            <th class="px-6 py-4">Залученість (Користувачі)</th>
+                            <th class="px-6 py-4">Час на підготовку</th>
+                            <th class="px-6 py-4">Тривалість кампанії</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-700">
+                        <tr class="hover:bg-slate-700/50 transition">
+                            <td class="px-6 py-4 font-medium text-white">1. Telegram Seeding</td>
+                            <td class="px-6 py-4 text-green-400">Низька ($50-200)</td>
+                            <td class="px-6 py-4"><span class="bg-green-900 text-green-300 px-2 py-0.5 rounded">9/10</span></td>
+                            <td class="px-6 py-4">Висока (500-2000)</td>
+                            <td class="px-6 py-4">1-2 дні</td>
+                            <td class="px-6 py-4">Миттєво (24-48 год)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-700/50 transition">
+                            <td class="px-6 py-4 font-medium text-white">2. Hyper-Local QR</td>
+                            <td class="px-6 py-4 text-green-400">Дуже Низька ($20)</td>
+                            <td class="px-6 py-4"><span class="bg-blue-900 text-blue-300 px-2 py-0.5 rounded">8/10</span></td>
+                            <td class="px-6 py-4">Середня (100-300)</td>
+                            <td class="px-6 py-4">3-5 днів (друк/поклейка)</td>
+                            <td class="px-6 py-4">Довгостроково</td>
+                        </tr>
+                        <tr class="hover:bg-slate-700/50 transition">
+                            <td class="px-6 py-4 font-medium text-white">3. Instagram Ads (Geo)</td>
+                            <td class="px-6 py-4 text-orange-400">Середня ($300+)</td>
+                            <td class="px-6 py-4"><span class="bg-blue-900 text-blue-300 px-2 py-0.5 rounded">7/10</span></td>
+                            <td class="px-6 py-4">Висока (1000+)</td>
+                            <td class="px-6 py-4">3-4 дні (креативи)</td>
+                            <td class="px-6 py-4">Постійно</td>
+                        </tr>
+                        <tr class="hover:bg-slate-700/50 transition">
+                            <td class="px-6 py-4 font-medium text-white">4. Партнери (Авто)</td>
+                            <td class="px-6 py-4 text-green-400">Низька (Бартер)</td>
+                            <td class="px-6 py-4"><span class="bg-orange-900 text-orange-300 px-2 py-0.5 rounded">6/10</span></td>
+                            <td class="px-6 py-4">Середня (200-500)</td>
+                            <td class="px-6 py-4">1-2 тижні (перемовини)</td>
+                            <td class="px-6 py-4">Довгостроково</td>
+                        </tr>
+                         <tr class="hover:bg-slate-700/50 transition">
+                            <td class="px-6 py-4 font-medium text-white">5. Партизанський (Коменти)</td>
+                            <td class="px-6 py-4 text-green-400">Безкоштовно</td>
+                            <td class="px-6 py-4"><span class="bg-orange-900 text-orange-300 px-2 py-0.5 rounded">5/10</span></td>
+                            <td class="px-6 py-4">Низька (50-100)</td>
+                            <td class="px-6 py-4">0 днів</td>
+                            <td class="px-6 py-4">Постійно</td>
+                        </tr>
+                        <tr class="hover:bg-slate-700/50 transition">
+                            <td class="px-6 py-4 font-medium text-white">6. Спільноти Таксі</td>
+                            <td class="px-6 py-4 text-green-400">Низька ($0-50)</td>
+                            <td class="px-6 py-4"><span class="bg-green-900 text-green-300 px-2 py-0.5 rounded">9/10 (Якість)</span></td>
+                            <td class="px-6 py-4">Середня (300-600)</td>
+                            <td class="px-6 py-4">1-3 дні</td>
+                            <td class="px-6 py-4">Разові пости</td>
+                        </tr>
+                        <tr class="hover:bg-slate-700/50 transition">
+                            <td class="px-6 py-4 font-medium text-white">7. Крос-промо (Боти)</td>
+                            <td class="px-6 py-4 text-orange-400">Середня ($100-300)</td>
+                            <td class="px-6 py-4"><span class="bg-blue-900 text-blue-300 px-2 py-0.5 rounded">7/10</span></td>
+                            <td class="px-6 py-4">Висока (1000+)</td>
+                            <td class="px-6 py-4">3-5 днів</td>
+                            <td class="px-6 py-4">Разова розсилка</td>
+                        </tr>
+                        <tr class="hover:bg-slate-700/50 transition">
+                            <td class="px-6 py-4 font-medium text-white">8. TikTok / Reels</td>
+                            <td class="px-6 py-4 text-orange-400">Час команди</td>
+                            <td class="px-6 py-4"><span class="bg-orange-900 text-orange-300 px-2 py-0.5 rounded">VARies</span></td>
+                            <td class="px-6 py-4">Непередбачувана</td>
+                            <td class="px-6 py-4">Постійно</td>
+                            <td class="px-6 py-4">Постійно</td>
+                        </tr>
+                        <tr class="hover:bg-slate-700/50 transition">
+                            <td class="px-6 py-4 font-medium text-white">9. PR Статті</td>
+                            <td class="px-6 py-4 text-red-400">Висока / Час</td>
+                            <td class="px-6 py-4"><span class="bg-orange-900 text-orange-300 px-2 py-0.5 rounded">6/10 (Імідж)</span></td>
+                            <td class="px-6 py-4">Висока (читаність)</td>
+                            <td class="px-6 py-4">2-3 тижні</td>
+                            <td class="px-6 py-4">Вічно (SEO)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-700/50 transition">
+                            <td class="px-6 py-4 font-medium text-white">10. Рефералка</td>
+                            <td class="px-6 py-4 text-green-400">Вартість розробки</td>
+                            <td class="px-6 py-4"><span class="bg-green-900 text-green-300 px-2 py-0.5 rounded">8/10</span></td>
+                            <td class="px-6 py-4">Експоненційна</td>
+                            <td class="px-6 py-4">1 тиждень (Dev)</td>
+                            <td class="px-6 py-4">Завжди</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-4 text-gray-500 text-xs italic">* Оцінки базуються на середніх показниках ринку Telegram-бота в Україні (2025-2026).</p>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+             <div class="text-2xl font-bold mono-font text-blue-400 tracking-tighter mb-4">
+                KYIV<span class="text-white">PARKING</span>BOT
+            </div>
+            <p class="text-gray-500 text-sm">MVP Strategy Dashboard © 2026</p>
+        </div>
+    </footer>
+
+    <div id="strategyModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/90 backdrop-blur-sm px-4">
+        <div class="bg-slate-800 border border-blue-500/30 rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden relative transform transition-all">
+            
+            <div class="bg-slate-900/50 p-6 border-b border-gray-700 flex justify-between items-center">
+                <h3 id="modalTitle" class="text-2xl font-bold text-white mono-font">Strategy Name</h3>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-white transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <div class="p-6 overflow-y-auto max-h-[70vh]">
+                <div class="mb-6">
+                    <div class="flex justify-between items-end mb-2">
+                        <span class="text-sm text-gray-400 uppercase tracking-wider font-semibold">Відповідність для MVP (Suitability)</span>
+                        <span id="modalScoreValue" class="text-2xl font-bold text-blue-400">0%</span>
+                    </div>
+                    <div class="w-full bg-slate-700 rounded-full h-4">
+                        <div id="modalScoreBar" class="bg-gradient-to-r from-blue-500 to-green-400 h-4 rounded-full transition-all duration-1000" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-blue-300 font-bold mb-2">Опис та Механіка</h4>
+                        <p id="modalDesc" class="text-gray-300 leading-relaxed text-sm"></p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-slate-900/50 p-4 rounded-lg border border-green-500/20">
+                            <h4 class="text-green-400 font-bold mb-2 flex items-center">
+                                <span class="mr-2">✅</span> ПЕРЕВАГИ
+                            </h4>
+                            <ul id="modalPros" class="list-disc list-inside text-sm text-gray-400 space-y-1"></ul>
+                        </div>
+                        <div class="bg-slate-900/50 p-4 rounded-lg border border-red-500/20">
+                            <h4 class="text-red-400 font-bold mb-2 flex items-center">
+                                <span class="mr-2">⚠️</span> РИЗИКИ ТА НЕДОЛІКИ
+                            </h4>
+                            <ul id="modalCons" class="list-disc list-inside text-sm text-gray-400 space-y-1"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/50 p-4 border-t border-gray-700 text-center">
+                <button onclick="closeModal()" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-full font-bold transition">Зрозуміло</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- DATA SOURCE FROM "Просування тг бота.txt" ---
+        const strategiesData = {
+            1: {
+                title: "1. Telegram Seeding (Нативна реклама)",
+                desc: "Розміщення нативних постів у вузькопрофільних експертних спільнотах та локальних чатах. Реклама від імені автора каналу сприймається не як маркетинг, а як особиста порада експерта. Це діє за принципом рекомендаційного маркетингу і значно підвищує рівень довіри до продукту.",
+                pros: ["Високий рівень довіри (Trust)", "Швидка конверсія 'в один клік'", "Якісна аудиторія в профільних каналах"],
+                cons: ["Ризик накручених каналів (ботоводство)", "Потрібен ретельний аудит через Telemetr/TGStat", "Банерна сліпота в 'сміттєвих' пабліках"],
+                score: 92
+            },
+            2: {
+                title: "2. Hyper-Local QR (Niche/Offline)",
+                desc: "Використання фізичних точок дотику в місцях найвищого болю користувача (ліфти БЦ, паркомати). Це працює як 'Niche Community' в офлайні, ловлячи користувача в момент потреби.",
+                pros: ["Максимальна релевантність (контекст)", "Висока конверсія з перегляду в дію", "Охоплення аудиторії, яка не сидить в соцмережах"],
+                cons: ["Складно масштабувати фізично", "Витрати на друк та логістику", "Ризик демонтажу реклами"],
+                score: 70
+            },
+            3: {
+                title: "3. Geo-Targeted Instagram Ads (Meta -> TG)",
+                desc: "Побудова крос-платформних воронок через Meta Ads. Використання лід-форм всередині Instagram для збору контактів та перенаправлення в бот через 'Лід-магніт'. Дозволяє обійти обмеження охоплення постів з посиланнями на Telegram.",
+                pros: ["CPL (ціна ліда) може бути дуже низькою (~$2.78)", "Точний гео-таргетинг на водіїв", "Можливість автоматизації через ApiX-Drive"],
+                cons: ["Потребує налаштування інтеграцій", "Швидкість обробки ліда має бути <20 хв", "Холодніша аудиторія, ніж в самому Telegram"],
+                score: 78
+            },
+            4: {
+                title: "4. Партнерство (Cross-Promo)",
+                desc: "Партнерський маркетинг та взаємний піар з непрямими конкурентами або комплементарними сервісами (наприклад, автомийки, СТО). Екологічний спосіб обміну аудиторією без бюджету.",
+                pros: ["Економічно вигідно (часто безкоштовно/бартер)", "Гаряча аудиторія партнерів", "Підвищення впізнаваності бренду"],
+                cons: ["Ризик розмиття позиціювання", "Потрібен час на перемовини", "Залежність від репутації партнера"],
+                score: 85
+            },
+            5: {
+                title: "5. Партизанський Маркетинг (Коменти)",
+                desc: "Так звані 'сірі' методи: моніторинг коментарів у конкурентів або парсинг аудиторії для Direct Outreach. Ризикований метод агресивного тестування MVP на ранніх етапах.",
+                pros: ["Може бути безкоштовним", "Прямий доступ до 'живої' аудиторії конкурентів"],
+                cons: ["Високий ризик блокування акаунту", "Ризик отримання мітки SCAM для бота", "Репутаційні втрати (сприйняття як спам)"],
+                score: 15
+            },
+            6: {
+                title: "6. Спільноти Таксі (Професійні групи)",
+                desc: "Інтеграція в закриті професійні спільноти (Facebook/Telegram групи таксистів). Ця аудиторія технічно підкована і шукає інструменти оптимізації своєї роботи.",
+                pros: ["Висока активність користувачів", "Якісний зворотний зв'язок для MVP", "Ефект 'сарафанного радіо'"],
+                cons: ["Закритість спільнот (важко потрапити)", "Нетерпимість до прямої реклами (потрібен експертний підхід)"],
+                score: 88
+            },
+            7: {
+                title: "7. Крос-промо з іншими Ботами",
+                desc: "Технологічне партнерство або взаємний піар з іншими ботами (Opendatabot, моніторинг пального). Аудиторія вже вміє користуватися ботами, що знімає бар'єр входу.",
+                pros: ["Ідеальне попадання в UX звички користувача", "Можливість API інтеграцій", "Масштабованість"],
+                cons: ["Складно знайти якісних партнерів", "Потрібно ретельно фільтрувати ботів-партнерів на 'накрутку'"],
+                score: 80
+            },
+            8: {
+                title: "8. TikTok / Reels (Content Marketing)",
+                desc: "Створення вірусного контенту (POV відео) для органічного охоплення. Візуалізація проблеми 'Circling Tax' через гумор та життєві ситуації.",
+                pros: ["Високий віральний потенціал", "Безкоштовне охоплення (Organic Reach)", "Емоційний зв'язок з брендом"],
+                cons: ["Вимагає значних ресурсів на продакшн", "Нестабільність результатів (алгоритми)", "Складно перевести глядача в бота"],
+                score: 60
+            },
+            9: {
+                title: "9. PR Статті та Каталоги",
+                desc: "Розміщення в каталогах 'ТОП чатботів' та PR-статті на ресурсах типу MC.today. Це працює на SEO (зворотні посилання) та легітимізацію стартапу в очах користувачів.",
+                pros: ["Побудова довіри та репутації", "Вічний SEO трафік (Backlinks)", "Залучення інвесторів/партнерів"],
+                cons: ["Довгий цикл запуску", "Часто платно або вимагає високої якості інфоприводу", "Слабка миттєва віддача для MVP"],
+                score: 45
+            },
+            10: {
+                title: "10. Реферальна Програма (PLG)",
+                desc: "Концепція Product-Led Growth. Інтеграція механізмів віральності (Referral Loops) всередину продукту. Користувач отримує бонуси за запрошення друзів, знижуючи CAC.",
+                pros: ["Експоненційне зростання", "Зниження вартості залучення (CAC)", "Самопідтримувана система"],
+                cons: ["Вимагає технічної розробки", "Потрібна цінна винагорода для мотивації", "Ризик 'фроду' (накрутки рефералів)"],
+                score: 98
+            }
+        };
+
+        // --- MODAL LOGIC ---
+        const modal = document.getElementById('strategyModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalPros = document.getElementById('modalPros');
+        const modalCons = document.getElementById('modalCons');
+        const modalScoreValue = document.getElementById('modalScoreValue');
+        const modalScoreBar = document.getElementById('modalScoreBar');
+
+        function openModal(id) {
+            const data = strategiesData[id];
+            
+            // Populate Data
+            modalTitle.innerText = data.title;
+            modalDesc.innerText = data.desc;
+            
+            // Clear and Populate Lists
+            modalPros.innerHTML = '';
+            data.pros.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = item;
+                modalPros.appendChild(li);
+            });
+
+            modalCons.innerHTML = '';
+            data.cons.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = item;
+                modalCons.appendChild(li);
+            });
+
+            // Set Score
+            modalScoreValue.innerText = data.score + '%';
+            
+            // Show Modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Animate Bar (slight delay for visual effect)
+            setTimeout(() => {
+                modalScoreBar.style.width = data.score + '%';
+            }, 100);
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            modalScoreBar.style.width = '0%'; // Reset for next animation
+        }
+
+        // Close on click outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+
+        // --- CHARTS CONFIGURATION ---
+        Chart.defaults.color = '#94a3b8';
+        Chart.defaults.font.family = 'Inter';
+
+        // Chart 1: Bubble Chart
+        const ctxImpact = document.getElementById('impactChart').getContext('2d');
+        const impactChart = new Chart(ctxImpact, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Стратегії',
+                    data: [
+                        { x: 2, y: 9, r: 15, label: 'Tg Seeding' },
+                        { x: 1, y: 8, r: 8, label: 'QR Codes' },
+                        { x: 6, y: 7, r: 12, label: 'Insta Ads' },
+                        { x: 3, y: 6, r: 7, label: 'Partners' },
+                        { x: 0, y: 5, r: 4, label: 'Comments' },
+                        { x: 1, y: 9, r: 10, label: 'Taxi Groups' },
+                        { x: 5, y: 7, r: 12, label: 'Cross-Promo' },
+                        { x: 4, y: 5, r: 20, label: 'TikTok' },
+                        { x: 8, y: 6, r: 10, label: 'PR Articles' },
+                        { x: 3, y: 8, r: 18, label: 'Referral' }
+                    ],
+                    backgroundColor: [
+                        'rgba(16, 185, 129, 0.7)',
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(249, 115, 22, 0.7)',
+                        'rgba(16, 185, 129, 0.7)',
+                        'rgba(148, 163, 184, 0.7)',
+                        'rgba(16, 185, 129, 0.7)',
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(249, 115, 22, 0.7)',
+                        'rgba(239, 68, 68, 0.7)',
+                        'rgba(168, 85, 247, 0.7)'
+                    ],
+                    borderColor: 'rgba(255,255,255,0.1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Вартість / Зусилля (0=Низька, 10=Висока)' },
+                        min: -1, max: 10,
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    },
+                    y: {
+                        title: { display: true, text: 'Ефективність (1-10)' },
+                        min: 3, max: 10,
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw.label + ': Вартість ' + context.raw.x + ', Ефект ' + context.raw.y;
+                            }
+                        }
+                    },
+                    legend: { display: false }
+                }
+            }
+        });
+
+        // Chart 2: Bar Chart
+        const ctxTime = document.getElementById('timeChart').getContext('2d');
+        const timeChart = new Chart(ctxTime, {
+            type: 'bar',
+            data: {
+                labels: ['Tg Seeding', 'QR Codes', 'Insta Ads', 'Partners', 'Taxi Groups', 'PR Articles', 'Referral Dev'],
+                datasets: [
+                    {
+                        label: 'Днів на підготовку',
+                        data: [2, 4, 3, 10, 2, 14, 5],
+                        backgroundColor: 'rgba(59, 130, 246, 0.8)',
+                    },
+                    {
+                        label: 'Днів активної фази (Мін)',
+                        data: [5, 30, 30, 60, 3, 90, 365],
+                        backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        type: 'logarithmic',
+                        title: { display: true, text: 'Дні (Логарифмічна шкала)' },
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
